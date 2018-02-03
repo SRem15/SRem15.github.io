@@ -5,12 +5,11 @@
 */
 
 body {
-	background-color: #000000;
+	background-color: #dbbe6f;
 }
 
 h1 {
 	text-align: center;
-	 
 	padding: 20px;
 	background-color:#ff8c00; 
 }
@@ -52,12 +51,14 @@ nav li a:hover:not(.active) {
 }	
 
 img {
-	padding: 20px;
+	
 	width: 700px;
 	height: 500px;
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
-	
+	border: solid;
+	border-color:#ff8c00; 
+	margin-top: 20px; 
 }
 
