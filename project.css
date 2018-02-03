@@ -1,0 +1,26 @@
+/*
+		CIS166AA: Style Sheet
+		Author: Shane Remmers
+		Date: 2/1/18
+*/
+
+nav ul{
+	
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+}
+	
+nav li a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+nav li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}	
