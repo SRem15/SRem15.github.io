@@ -27,10 +27,33 @@
 </nav>
 
 	<img src="sunsetcraterfinal.JPG" alt="Sunset Crater">
+<br>
+<br>
+
+<h2>Time To Travel<h2>
+Enter Miles: <input type = "number" id = "distance"/>
+Enter Speed: <input type = "number" id = "speed"/> <br>
+<button type = "button" id = "submit" onclick = "convert();">Submit</button> <br>
+
+<h3>Time to Travel In Hours: <a id = "answer" </a></h3>
+
+ 
+
 
 <footer>
 	<a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fsrem15.github.io%2Findex.html"><img src="validate.jpg" alt="Validator"></a>
 </footer>
+<script>
+   function getTime() 
+   {
+		var distance = document.getElementById("distance").value;
+		var speed = document.getElementById("speed").value; 
+		var time = distance / speed; 
+		document.getElementById("answer").innerHTML = time; 
+   }
+   addEventListener("click", getTime, false);
+   document.getElementById("submit").onclick = getTime;
+   </script>
 </body>
 
 
