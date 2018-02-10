@@ -26,6 +26,14 @@ h3 {
 	background-color:#ff8c00;
 }
 
+p {
+	text-align: center;
+	padding: 5px;
+	margin: auto; 
+	margin-right: auto;
+	margin-left; auto;
+}
+
 
 nav {
 	overflow: hidden;
@@ -37,12 +45,12 @@ nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-	text-align: 
+	text-align: center; 
 }
 
 nav li {
 	display: inline;
-	text-align:  
+	text-align: center; 
 }
 
 nav li a {
