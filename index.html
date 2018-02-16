@@ -41,6 +41,18 @@
 
 <h3>Time to Travel In Hours: <a id = "answer"></a></h3>
 
+<br>
+<br>
+
+<form>
+<h2>Have you been to Greer, AZ?</h2>
+<input type = "radio" name = "answer" value = "yes" id = "y">Yes<br>
+<input type = "radio" name = "answer" value = "no" id = "n">No<br>
+<button type = "button" id = "submit2" onclick = "getAnswer();">Submit</button><br>
+</form>
+
+<h3><a id = "answer2"</a></h3>
+
  
 
 
@@ -56,7 +68,26 @@
 		document.getElementById("answer").innerHTML = time; //displays the solution to equation in HTML
    }
    document.getElementById("submit").onclick = getTime; //displays solution when button is clicked 
-   </script>
+</script>
+<script>
+function getAnswer()
+{
+	
+	if(y.checked)
+   {
+		var message = document.write("Awesome!");
+		document.getElementById("answer2").innerHTML = message;
+   }   
+   else if (n.checked)
+   {
+		var message2 = document.write("It is only 214 miles north east of Phoenix!");
+		document.getElementById("answer2").innterHTML = message2; 
+		
+   }
+   
+ }
+ </script>
+   
 </body>
 
 

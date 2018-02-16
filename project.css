@@ -8,6 +8,11 @@ body {
 	background-color: #dbbe6f;
 }
 
+form {
+	text-align: center; 
+	
+}
+
 h1 {
 	text-align: center;
 	padding: 20px;
