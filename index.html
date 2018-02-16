@@ -50,12 +50,6 @@
 <input type = "radio" name = "answer" value = "no" id = "n">No<br>
 <button type = "button" id = "submit2" onclick = "getAnswer();">Submit</button><br>
 </form>
-
-<h3><a id = "answer2"></a></h3>
-
- 
-
-
 <footer>
 	<a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fsrem15.github.io%2Findex.html"><img src="validate.jpg" alt="Validator"></a>
 </footer>
@@ -70,18 +64,22 @@
    document.getElementById("submit").onclick = getTime; //displays solution when button is clicked 
 </script>
 <script>
-function getAnswer()
+function getAnswer() //creates function 
 {
 	
-	if(y.checked)
+	if(y.checked) // if 
    {
-		var message = document.write("Awesome!");
-		document.getElementById("answer2").innerHTML = message;
+		alert("Awesome!")
+		
    }   
    else if (n.checked)
    {
-		var message2 = document.write("It is only 214 miles north east of Phoenix!");
-		document.getElementById("answer2").innterHTML = message2; 	
+		alert("It is only 214 miles north east of Phoenix!")
+			
+   }
+   else
+   {
+		alert("Please select yes or no.")
    }
    
  }
