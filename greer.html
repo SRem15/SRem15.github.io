@@ -19,17 +19,47 @@
 
 <nav>
 	<ul>
-		<li><a class = "active" href="index.html">Home</a></li>
-		<li><a href="greer.html">Greer</a></li>
+		<li><a href="index.html">Home</a></li>
+		<li><a class = "active" href="greer.html">Greer</a></li>
 		<li><a href="flagstaff.html">Flagstaff</a></li>
 		<li><a href="page.html">Page</a></li>
 	</ul>
 </nav>
 
 	<img src="treeupfinal.JPG" alt="Greer Trees">
+<br>
+<br>
+<form>
+<h2>Have you been to Greer, AZ?</h2>
+<input type = "radio" name = "answer" value = "yes" id = "y">Yes<br>
+<input type = "radio" name = "answer" value = "no" id = "n">No<br>
+<button type = "button" id = "submit2" onclick = "getAnswer();">Submit</button><br>
+</form>
+<footer>
 
 <footer>
 	<a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fsrem15.github.io%2Fgreer.html"><img src="validate.jpg" alt="Validator"></a>
 </footer>
+<script>
+function getAnswer() //creates function 
+{
+	
+	if(y.checked) // if yes button is checked, following message displays
+   {
+		alert("Awesome!")
+		
+   }   
+   else if (n.checked) //if no button is checked, following message displays
+   {
+		alert("It is only 214 miles north east of Phoenix!")
+			
+   }
+   else	//if neither button is checked and submit is clicked, following message is displayed 
+   {
+		alert("Please select yes or no.")
+   }
+   
+ }
+ </script>
 </body>
 </html>

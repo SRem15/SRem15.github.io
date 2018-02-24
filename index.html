@@ -4,7 +4,7 @@
 	<!--
 		CIS166AA: Index Page
 		Author: Shane Remmers
-		Date: 2/9/18
+		Date: 2/23/18
 	-->
 	<meta charset="utf-8" />
 	<title>Home</title>
@@ -30,61 +30,78 @@
 <br>
 <br>
 
+<form>
 <h2>Time To Travel</h2>
 <p>
+<fieldset>
 	Enter Miles: <input type = "number" id = "distance"/>
+</fieldset>
+<fieldset>
 	Enter Speed: <input type = "number" id = "speed"/> <br>
-
+</fieldset>
 	<!-- when clicked, this button calls the getTime() function -->
 	<button type = "button" id = "submit" onclick = "getTime();">Submit</button> <br>
 </p>
 
-<h3>Time to Travel In Hours: <a id = "answer"></a></h3>
-
-<br>
-<br>
-
-<form>
-<h2>Have you been to Greer, AZ?</h2>
-<input type = "radio" name = "answer" value = "yes" id = "y">Yes<br>
-<input type = "radio" name = "answer" value = "no" id = "n">No<br>
-<button type = "button" id = "submit2" onclick = "getAnswer();">Submit</button><br>
+<h3>Time to Travel In Hours: <p id = "answer"></p>
+<p id = "errorAnswer"></p></h3>
 </form>
+
+<br>
+<br>
+
 <footer>
 	<a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fsrem15.github.io%2Findex.html"><img src="validate.jpg" alt="Validator"></a>
 </footer>
 <script>
    function getTime() //creates the function
    {
-		var distance = document.getElementById("distance").value; //creates the local variable from user input in the HTML
-		var speed = document.getElementById("speed").value; //creates the local variable from user input in the HTML
-		var time = distance / speed; //creates the local variable from equation 
-		document.getElementById("answer").innerHTML = time; //displays the solution to equation in HTML
+		var message, x; //declares global variables 
+		message = document.getElementById("errorAnswer"); //sets message variable to errorAnswer in html 
+		message.innerHTML = ""; //leaves errorAnswer blank in html 
+		x = document.getElementById("distance").value; //creates the local variable from user input in the HTML
+		
+		try
+		{	
+			if (x < 0)
+			{
+				throw "Please enter distance greater than zero."; //if the user input for distance is less than zero, the handler
+																  //will throw this error message 
+			}
+		}
+		
+		catch(mileError)
+		{
+			message.innerHTML = mileError; //thrown message is set to message 
+			document.getElementById("distance").value = ""; //the value for distance is cleared 
+			answer = document.getElementById("answer") = ""; //the value for answer is cleared 
+		}
+		var y = document.getElementById("speed").value; //creates the local variable from user input in the HTML
+		
+		try
+		{	
+			if (y < 0)
+			{
+				throw "Please enter speed greater than zero."; //if the user input for speed is less than zero, the handler
+															   //will throw this error message 
+			}
+		}
+		
+		catch(speedError)
+		{
+			message.innerHTML = speedError; //thrown message is set to message
+			document.getElementById("speed").value = ""; // the value for speed is cleared
+			answer = document.getElementById("answer") = ""; //the value for the answer is cleared 
+		}
+		
+		var time = x / y; //creates the local variable from equation 
+		var answer = document.getElementById("answer"); // variable is created for the answer 
+		answer.innerHTML = time; //displays the solution to equation in HTML
+		
+		<!--For this assignment, I mostly used the console and firefox debugger. -->
    }
    document.getElementById("submit").onclick = getTime; //displays solution when button is clicked 
-</script>
-<script>
-function getAnswer() //creates function 
-{
-	
-	if(y.checked) // if 
-   {
-		alert("Awesome!")
-		
-   }   
-   else if (n.checked)
-   {
-		alert("It is only 214 miles north east of Phoenix!")
-			
-   }
-   else
-   {
-		alert("Please select yes or no.")
-   }
-   
- }
- </script>
-   
+</script> 
 </body>
 
 
