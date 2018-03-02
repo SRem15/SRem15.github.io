@@ -92,3 +92,9 @@ footer img {
 	float: left; 
 }
 
+div {
+	width: 400px;
+    padding: 5px;
+    margin: auto;
+	
+}
