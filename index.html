@@ -45,6 +45,23 @@
 
 <h3>Time to Travel In Hours:</h3> <p id = "answer"></p>
 <p id = "errorAnswer"></p>
+
+<div id = "myDiv">
+<h2>Have you been to Greer, AZ?</h2>
+<input type = "radio" name = "answer" value = "yes" id = "y">Yes<br>
+<input type = "radio" name = "answer" value = "no" id = "n">No<br>
+<button type = "button" id = "submit" onclick = "getTime();">Submit</button><br>
+</div>
+
+<div id = "myDiv2">
+<h2>Where have you visited?</h2>
+<input type = "checkbox" name ="greer" value = "greer" id = "greer">Greer<br>
+<input type = "checkbox" name ="flag" value = "flag" id = "flag">Flagstaff<br>
+<input type = "checkbox" name ="page" value = "page" id = "page">Page<br>
+<input type = "checkbox" name ="none" value = "none" id = "none">None of the Above<br>
+<button type = "button" id = "submit" onclick = "getTime();">Submit</button><br>
+</div>
+
 </form>
 
 <br>
@@ -54,6 +71,9 @@
 	<a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fsrem15.github.io%2Findex.html"><img src="validate.jpg" alt="Validator"></a>
 </footer>
 <script>
+
+	
+
    function getTime() //creates the function
    {
 		var message, x; //declares global variables 
@@ -66,7 +86,7 @@
 			if (x < 0)
 			{
 				throw "Please enter distance greater than zero."; //if the user input for distance is less than zero, the handler
-																  //will throw this error message 
+															  //will throw this error message 
 			}
 		}
 		
@@ -74,8 +94,8 @@
 		{
 			message.innerHTML = mileError; //thrown message is set to message 
 			document.getElementById("distance").value = ""; //the value for distance is cleared 
-			answer = document.getElementById("answer") = ""; //the value for answer is cleared 
-		}
+			answer = document.getElementById("answer") = ""; //the value for answer is cleared
+		}	
 		var y = document.getElementById("speed").value; //creates the local variable from user input in the HTML
 		
 		try
@@ -97,6 +117,68 @@
 		var time = x / y; //creates the local variable from equation 
 		var answer = document.getElementById("answer"); // variable is created for the answer 
 		answer.innerHTML = time; //displays the solution to equation in HTML
+		
+		//validation 
+		
+		if (document.getElementById("distance").value === "") //checks to see if field is blank
+		{
+			alert("Please enter value in Miles field (in red)."); //displays message if field is blank
+			document.getElementById("distance").style.backgroundColor = "red"; //turns field red
+		}
+		else
+		{
+			document.getElementById("distance").style.backgroundColor = "white"; //leaves field white if filled
+		}
+		
+		if (document.getElementById("speed").value === "") //checks to see if field is blank
+		{
+			alert("Please enter value in Speed field (in red)."); //displays message if field is blank
+			document.getElementById("speed").style.backgroundColor = "red"; //turns field red
+		}
+		else
+		{
+			document.getElementById("speed").style.backgroundColor = "white"; //leaves field white if filled
+		}
+		
+		if (document.getElementById("y").checked == false && document.getElementById("n").checked == false ) //checks to see if either yes or no is selected
+		{
+			alert("Please select an answer to first question (in red)."); //displays message if neither is selected
+			document.getElementById("myDiv").style.borderColor = "red"; //makes a red border around missing answers
+		}
+		else
+		{
+			document.getElementById("myDiv").style.borderColor = "#dbbe6f"; //leaves border around answers orange 
+		}
+		
+		if (document.getElementById("greer").checked == false && document.getElementById("page").checked == false &&
+		document.getElementById("flag").checked == false && document.getElementById("none").checked == false) //checks to see if any answer is selected
+		{
+			alert("Please select an answer to the second question (in red).") //displays message if neither is selected
+			document.getElementById("myDiv2").style.borderColor = "red"; //makes a red border around missing answers
+		}
+		else
+		{
+			document.getElementById("myDiv2").style.borderColor = "#dbbe6f"; //leaves border around answers orange 
+		}
+		
+		//nested if-else statement that checks to make sure all requirements of the form are met 
+		if (document.getElementById("distance").value != "" && document.getElementById("speed").value != "") //checks that fields are not blank	
+		{
+			if (document.getElementById("y").checked == true || document.getElementById("n").checked == true) //checks that one answer is selected
+			{
+				if (document.getElementById("greer").checked == true || document.getElementById("page").checked == true ||
+					document.getElementById("flag").checked == true || document.getElementById("none").checked == true) //checks that one answer is selected 
+				{
+					alert("Thank you for filling out the form!"); //displays message if form is complete 
+				}
+			}
+		}
+		
+		else
+		{
+			alert("Please finish fixing errors to complete the form."); //displays message if form is not complete
+		}
+		
 		
 		<!--For this assignment, I mostly used the console and firefox debugger. -->
    }
