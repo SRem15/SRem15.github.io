@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--
+		CIS166AA: Index Page
+		Author: Shane Remmers
+		Date: 3/22/18
+	-->
+	<meta charset="utf-8" />
+	<title>Home</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="stylesheet" href="project.css">
+	<!-- Loads the file needed for older web browsers -->
+	<script src="modernizr.custom.05819.js"></script> 
+</head>
+<body>
+
+<nav>
+	<ul>
+		<li><a href="index.html">Home</a></li>
+		<li><a href="greer.html">Greer</a></li>
+		<li><a href="flagstaff.html">Flagstaff</a></li>
+		<li><a href="page.html">Page</a></li>
+		<li><a href="webSec.html">Web Security Info</a></li>
+		<li><a class = "active" href="date.html">Date Elapse Difference</a></li>
+	</ul>
+</nav>
+
+<h1>Date Elapse Calculator</h1>
+
+<form>
+<h2>Enter A Date</h2>
+Day:<input type = "number" id = "day">
+Month:<input type = "number" id = "month">
+Year:<input type = "number" id = "year"><br>
+<button type = "button" id = "submit" onclick = "getDiffDate();">Get Difference</button><br>
+</form>
+
+<div>
+<h3>Time Difference:</h3> 
+Years:<p id = "year2"></p>
+Months:<p id = "month2"></p>
+Days:<p id = "day2"></p>
+</div>
+
+<script>
+
+function getDiffDate() //creates function
+{
+
+//declares variable from user input
+var day = document.getElementById("day").value;
+var month = document.getElementById("month").value;
+var year = document.getElementById("year").value;
+
+//variables used as place holders  
+var d = 0;
+var y = 0;
+var d2 = 0;
+var y2 = 0;
+var dayAns = 0;
+
+//creates new date object
+var today = new Date();
+
+//stoeres current date into variables 
+var year2 = today.getFullYear();
+var month2 = today.getMonth();
+var day2 = today.getDay();
+
+//alerts user when days go beyond one month
+if (day > 32)
+{	
+	alert("Enter day to be 31 or less.")	
+}
+
+//alerts user is months go beyond one year
+if (month > 12)
+{
+	alert("Enter month to be 12 or less.")
+}
+
+//alerts user if year is in the future 
+if (year > year2)
+{
+	alert("Enter past date; not future.")
+}
+
+//alearts user if year and month is in the future
+if (year == year2 && month > month2)
+{
+	alert("Enter past date; not future.")
+}
+
+//alerts user if day, month, and year is in future 
+if (year == year2 && month == month2 && day > day2)
+{
+	alert("Enter past date; not future.")
+}
+
+//is user input is greater than current day, this will store quotient in variable 
+if (day > 31)
+{
+	d = day / 31; 
+}
+//the user input will stay as is if not
+else
+{
+	month = document.getElementById("month").value;
+}
+//if month is greater than 12, this will store the quotient in variable 
+if (month > 12)
+{
+	y = month / 12;
+}
+//the user input will stay as is if not
+else
+{
+	year = document.getElementById("year").value;
+} 
+
+//variables that get difference in dates
+var dayAn = day2 - day;
+var monthAn = month2 - (d + month);
+var yearAn = year2 - (y + year); 
+
+//variables that round the difference answer to a whole number
+var dayAns = Math.round(dayAn);
+var monthAns = Math.round(monthAn);
+var yearAns = Math.round(yearAn);
+
+//if user input equals current year, difference in years will be 0
+if(yearAn == -1)
+{
+	yearAns = 0;
+}
+
+//if user input month is greater than current month, the difference in years will be minus one
+if(month > monthAns )
+{
+	yearAns = yearAns - 1; 
+}
+
+//if differnce in days is negative, answer will be added to 31
+if (dayAns < 0)
+{
+	dNeg = 31 + dayAns;
+	dayAns = dNeg; 
+}
+// if not, answer is rounded
+else 
+{
+	dayAns = Math.round(dayAn);
+}
+
+//if difference in months is negative, answer will be added to 12
+if (monthAns < 0)
+{
+	mNeg = 12 + monthAns;
+	monthAns = mNeg;
+}
+//if not, answer is rounded 
+else
+{
+	monthAns = Math.round(monthAn);
+}
+
+//if user input for days is equal to 31, the difference in month will be minus one 
+if (day == 31)
+{
+	minusMonth = monthAns - 1;
+	monthAns = minusMonth;
+}
+//if not, answer is rounded 
+else 
+{
+	monthAn = Math.round(monthAn);
+}
+
+
+
+
+document.getElementById("year2").innerHTML = yearAns; //answer is displayed
+
+month2 = document.getElementById("month2").innerHTML = monthAns; //answer is displayed 
+
+day2 = document.getElementById("day2").innerHTML = dayAns; //answer is displayed 
+
+
+}
+
+document.getElementById("submit").onclick = getDiffDate;
+
+</script>
+
+
+<footer>
+	<a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fsrem15.github.io%2Fdate.html"><img src="validate.jpg" alt="Validator"></a>
+</footer>
+</body>
+</html>
