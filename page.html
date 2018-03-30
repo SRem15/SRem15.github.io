@@ -4,14 +4,14 @@
 	<!--
 		CIS166AA: Page Page
 		Author: Shane Remmers
-		Date: 2/1/18
+		Date: 3/29/18
 	-->
 	<meta charset="utf-8" />
 	<title>Page</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<link rel="stylesheet" href="project.css">
 	<!-- Loads the file needed for older web browsers -->
-	<script> src="modernizr.custom.05819.js"></script> 
+	<script src="modernizr.custom.05819.js"></script>
 </head>
 <body>
 
@@ -29,9 +29,120 @@
 </nav>
 
 	<img src="halfpipeantcanyonfinal.JPG" alt="Antelope Canyon">
+<br>
+<h2>Check the areas you have been to in Page, AZ:</h2><br>
+<form>
+<input type="checkbox" id="antelope" name="locale">Antelope Canyon<br>
+<input type="checkbox" id="horseshoe" name="locale">Horse Shoe Bend<br>
+<input type="checkbox" id="museum" name="locale">Museum<br>
+<input type="checkbox" id="lake" name="locale">Lake Powell<br>
+<input type="checkbox" id="dam" name="locale">Lake Powell Dam<br>
+<button type="button" id="submit" onclick="checkPlaces();">Submit</button>
+</form>
+
+
+<h2>Visited:</h2>
+<p id="localeDisplay"></p>
+
 
 <footer>
 	<a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fsrem15.github.io%2Fpage.html"><img src="validate.jpg" alt="Validator"></a>
 </footer>
+<script>
+
+function checkPlaces(){
+
+var locales = [];
+
+	if (document.getElementById("antelope").checked)
+	{
+		
+		locales.push("Antelope Canyon");
+		locales.toString();
+		document.getElementById("localeDisplay").innerHTML = locales;
+		
+	}
+	else
+	{
+	
+		locales.slice("Antelope Canyon");
+		locales.toString();
+		document.getElementById("localeDisplay").innerHTML = locales;
+	
+	}
+	
+	if (document.getElementById("horseshoe").checked)
+	{
+		
+		locales.push(" Horse Shoe Bend");
+		locales.toString();
+		document.getElementById("localeDisplay").innerHTML = locales;
+		
+	}
+	else
+	{
+	
+		locales.slice("Horse Shoe Bend");
+		locales.toString();
+		document.getElementById("localeDisplay").innerHTML = locales;
+	
+	}
+	
+	if (document.getElementById("museum").checked)
+	{
+		
+		locales.push(" Museum");
+		locales.toString();
+		document.getElementById("localeDisplay").innerHTML = locales;
+		
+	}
+	else
+	{
+	
+		locales.slice("Museum");
+		locales.toString();
+		document.getElementById("localeDisplay").innerHTML = locales;
+	
+	}
+	
+	if (document.getElementById("lake").checked)
+	{
+		
+		locales.push(" Lake Powell");
+		locales.toString();
+		document.getElementById("localeDisplay").innerHTML = locales;
+		
+	}
+	else
+	{
+	
+		locales.slice("Lake Powell");
+		locales.toString();
+		document.getElementById("localeDisplay").innerHTML = locales;
+	
+	}
+	
+	if (document.getElementById("dam").checked)
+	{
+		
+		locales.push(" Lake Powell Dam");
+		locales.toString();
+		document.getElementById("localeDisplay").innerHTML = locales;
+		
+	}
+	else
+	{
+	
+		locales.slice("Lake Powell Dam");
+		locales.toString();
+		document.getElementById("localeDisplay").innerHTML = locales;
+	
+	}
+
+}
+
+document.getElementById("submit").onclick = checkPlaces;
+
+</script>
 </body>
 </html>
