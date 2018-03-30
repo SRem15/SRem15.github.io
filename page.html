@@ -50,10 +50,14 @@
 </footer>
 <script>
 
+//creates function 
 function checkPlaces(){
 
+//creates empty array
 var locales = [];
 
+	//if statement that checks to see if box is checked, then adds element
+	//to array
 	if (document.getElementById("antelope").checked)
 	{
 		
@@ -62,6 +66,8 @@ var locales = [];
 		document.getElementById("localeDisplay").innerHTML = locales;
 		
 	}
+	//else statement that checks to see if box is checked, then removes element
+	//from array
 	else
 	{
 	
@@ -70,7 +76,8 @@ var locales = [];
 		document.getElementById("localeDisplay").innerHTML = locales;
 	
 	}
-	
+	//if statement that checks to see if box is checked, then adds element
+	//to array
 	if (document.getElementById("horseshoe").checked)
 	{
 		
@@ -79,6 +86,8 @@ var locales = [];
 		document.getElementById("localeDisplay").innerHTML = locales;
 		
 	}
+	//else statement that checks to see if box is checked, then removes element
+	//from array
 	else
 	{
 	
@@ -87,7 +96,8 @@ var locales = [];
 		document.getElementById("localeDisplay").innerHTML = locales;
 	
 	}
-	
+	//if statement that checks to see if box is checked, then adds element
+	//to array
 	if (document.getElementById("museum").checked)
 	{
 		
@@ -96,6 +106,8 @@ var locales = [];
 		document.getElementById("localeDisplay").innerHTML = locales;
 		
 	}
+	//else statement that checks to see if box is checked, then removes element
+	//from array
 	else
 	{
 	
@@ -104,7 +116,8 @@ var locales = [];
 		document.getElementById("localeDisplay").innerHTML = locales;
 	
 	}
-	
+	//if statement that checks to see if box is checked, then adds element
+	//to array
 	if (document.getElementById("lake").checked)
 	{
 		
@@ -113,6 +126,8 @@ var locales = [];
 		document.getElementById("localeDisplay").innerHTML = locales;
 		
 	}
+	//else statement that checks to see if box is checked, then removes element
+	//from array
 	else
 	{
 	
@@ -121,7 +136,8 @@ var locales = [];
 		document.getElementById("localeDisplay").innerHTML = locales;
 	
 	}
-	
+	//if statement that checks to see if box is checked, then adds element
+	//to array
 	if (document.getElementById("dam").checked)
 	{
 		
@@ -130,6 +146,8 @@ var locales = [];
 		document.getElementById("localeDisplay").innerHTML = locales;
 		
 	}
+	//else statement that checks to see if box is checked, then removes element
+	//from array
 	else
 	{
 	
@@ -140,7 +158,7 @@ var locales = [];
 	}
 
 }
-
+//displays array when submit button is clicked 
 document.getElementById("submit").onclick = checkPlaces;
 
 </script>
