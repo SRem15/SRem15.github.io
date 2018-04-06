@@ -4,7 +4,7 @@
 	<!--
 		CIS166AA: Index Page
 		Author: Shane Remmers
-		Date: 2/23/18
+		Date: 4/6/18
 	-->
 	<meta charset="utf-8" />
 	<title>Home</title>
@@ -36,10 +36,10 @@
 <h2>Time To Travel</h2>
 
 <fieldset>
-	Enter Miles: <input type = "number" id = "distance"/>
+	Enter Miles: <input type = "number" min = "1" max="2500" id = "distance"/>
 </fieldset>
 <fieldset>
-	Enter Speed: <input type = "number" id = "speed"/> <br>
+	Enter Speed: <input type = "number" id = "speed" min="1" max="575"/> <br>
 </fieldset>
 	<!-- when clicked, this button calls the getTime() function -->
 	<button type = "button" id = "submit" onclick = "getTime();">Submit</button> <br>
@@ -118,6 +118,17 @@
 		var answer = document.getElementById("answer"); // variable is created for the answer 
 		answer.innerHTML = time; //displays the solution to equation in HTML
 		
+		//security validation add on
+		
+		if (document.getElementById("distance").value < 0) //checks user input for a positive number
+		{
+			alert("Please enter value over 0.") //displays error message if input is not positive 
+		}
+		
+		if (document.getElementById("speed").value < 0) //checks user input for a positive number
+		{
+			alert("Please enter value over 0.") //displays error message if input is not positive 
+		}
 		//validation 
 		
 		if (document.getElementById("distance").value === "") //checks to see if field is blank

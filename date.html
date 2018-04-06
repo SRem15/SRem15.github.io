@@ -4,7 +4,7 @@
 	<!--
 		CIS166AA: Index Page
 		Author: Shane Remmers
-		Date: 3/22/18
+		Date: 4/6/18
 	-->
 	<meta charset="utf-8" />
 	<title>Home</title>
@@ -30,9 +30,9 @@
 
 <form>
 <h2>Enter A Date</h2>
-Day:<input type = "number" id = "day">
-Month:<input type = "number" id = "month">
-Year:<input type = "number" id = "year"><br>
+Day:<input type = "number" id = "day" min="1" max="31">
+Month:<input type = "number" id = "month" min="1" max="12">
+Year:<input type = "number" id = "year" min="1" max="2018"><br>
 <button type = "button" id = "submit" onclick = "getDiffDate();">Get Difference</button><br>
 </form>
 
@@ -67,6 +67,23 @@ var today = new Date();
 var year2 = today.getFullYear();
 var month2 = today.getMonth();
 var day2 = today.getDay();
+
+//validation for security
+
+if (document.getElementById("day").value < 0) //checks user input for a positive number
+{
+	alert("Please enter value over 0.") //displays error message if input is not positive 
+}
+
+if (document.getElementById("month").value < 0) //checks user input for a positive number
+{
+	alert("Please enter value over 0.") //displays error message if input is not positive 
+}
+
+if (document.getElementById("year").value < 0) //checks user input for a positive number
+{
+	alert("Please enter value over 0.") //displays error message if input is not positive 
+}
 
 //alerts user when days go beyond one month
 if (day > 32)
