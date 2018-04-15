@@ -85,7 +85,7 @@ with all browsers. The following properties of the Navigator Object gathers the 
 
 <script>
 
-function geoTest() {
+function geoTest() { //function that runs the showLocation function and sets a timeout if location cannot be found 
    waitForUser = setTimeout(fail, 10000);
    if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showLocation, fail, {timeout: 10000});
@@ -94,11 +94,11 @@ function geoTest() {
    }
 }
 
-function fail() {
-	console.log("Failure");
+function fail() { //displays failure message in console when location cannot be found 
+	console.log("Failure"); 
 }
 
-function showLocation(position)
+function showLocation(position) //function that finds location of user and displays them to console and webpage
 {
 	console.log("Longitude:" + position.coords.longitude);
 	console.log("Latitude: " + position.coords.latitude);
@@ -108,23 +108,21 @@ function showLocation(position)
 	document.getElementById("altitude").innerHTML = "Altitude: " + position.coords.altitude;
 	
 	var currPosLat = position.coords.latitude;
-var currPosLng = position.coords.longitude;
+	var currPosLng = position.coords.longitude;
 
-var mapOptions = 
+var mapOptions = //creates new map variable 
 	{
 		center: new google.maps.LatLng(currPosLat, currPosLng), zoom: 10
 	};
 
-var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+	var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 	
 }
 
-navigator.geolocation.getCurrentPosition(showLocation);
-
-
-
+navigator.geolocation.getCurrentPosition(showLocation); //gets current locations of user 
 
 </script>
+<!--connects to google for map dislpay-->
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&callback=geoTest"></script>
 </body>
 
