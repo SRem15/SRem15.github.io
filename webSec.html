@@ -4,7 +4,7 @@
 	<!--
 		CIS166AA: Web Security 
 		Author: Shane Remmers
-		Date: 3/01/18
+		Date: 4/10/18
 	-->
 	<meta charset="utf-8" />
 	<title>Home</title>
@@ -68,12 +68,64 @@ with all browsers. The following properties of the Navigator Object gathers the 
 </ul>
 </div>
 
+<div id = "map"></div> 
+<h2>Your Location</h2><br>
+<div id="latitude"></div>
+<div id="longitude"></div>
+<div id="altitude"></div>
+
 <br>
 <br>
 
 <footer>
 	<a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fsrem15.github.io%2FwebSec.html"><img src="validate.jpg" alt="Validator"></a>
 </footer>
+
+
+
+<script>
+
+function geoTest() {
+   waitForUser = setTimeout(fail, 10000);
+   if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showLocation, fail, {timeout: 10000});
+   } else {
+      fail();
+   }
+}
+
+function fail() {
+	console.log("Failure");
+}
+
+function showLocation(position)
+{
+	console.log("Longitude:" + position.coords.longitude);
+	console.log("Latitude: " + position.coords.latitude);
+	console.log("Altitude: " + position.coords.altitude);
+	document.getElementById("latitude").innerHTML = "Latitude: " + position.coords.latitude;
+	document.getElementById("longitude").innerHTML = "Longitude: " + position.coords.longitude;
+	document.getElementById("altitude").innerHTML = "Altitude: " + position.coords.altitude;
+	
+	var currPosLat = position.coords.latitude;
+var currPosLng = position.coords.longitude;
+
+var mapOptions = 
+	{
+		center: new google.maps.LatLng(currPosLat, currPosLng), zoom: 10
+	};
+
+var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+	
+}
+
+navigator.geolocation.getCurrentPosition(showLocation);
+
+
+
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&callback=geoTest"></script>
 </body>
 
 

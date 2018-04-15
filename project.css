@@ -93,10 +93,17 @@ footer img {
 }
 
 div {
-	width: 400px;
-    padding: 5px;
-    margin: auto;
-	border-color: #dbbe6f;
-	border-style: solid;
+	margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 	
+	
+}
+
+#map {
+   width: 100%;
+   min-height: 300px;
 }
