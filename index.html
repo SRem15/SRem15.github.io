@@ -4,7 +4,7 @@
 	<!--
 		CIS166AA: Index Page
 		Author: Shane Remmers
-		Date: 4/6/18
+		Date: 4/19/18
 	-->
 	<meta charset="utf-8" />
 	<title>Home</title>
@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="project.css">
 	<!-- Loads the file needed for older web browsers -->
 	<script src="modernizr.custom.05819.js"></script> 
+	
 </head>
 <body>
 
@@ -67,12 +68,25 @@
 <br>
 <br>
 
+
+<h2>Arizona Travel Pics</h2>
+<div id='arizonatravel'></div>
+
+<!-- The JSONP call just takes place in a normal script tag with a URL 
+parameter that specifies your callback method name. -->
+
+<script src='http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=processJSON&tags=monkey&tagmode=any&format=json'></script>
+
+
+
 <footer>
 	<a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fsrem15.github.io%2Findex.html"><img src="validate.jpg" alt="Validator"></a>
 </footer>
-<script>
 
-	
+
+
+
+<script>
 
    function getTime() //creates the function
    {
@@ -194,9 +208,38 @@
 		<!--For this assignment, I mostly used the console and firefox debugger. -->
    }
    document.getElementById("submit").onclick = getTime; //displays solution when button is clicked 
-</script> 
+   
+   
+// This function will be called when the JSONP script returns. It needs to be evaluated
+// before the script with the JSONP call.
+	
+    var processJSON = function(json) {
+    var arizonatravel_photos = document.getElementById('arizonatravel');
+    var container = document.createElement('div');
+
+    // Initialize a var for new elements
+    var div;
+
+    // Build a list of images
+    for (var item in json.items) {
+
+        // Create an element to hold an image. It's easier to append
+        // stuff to the page this way.
+        div = document.createElement('div');
+
+        // Stick html into the new div, append to the container.
+        div.innerHTML = json.items[item].description;
+        container.appendChild(div);
+    }
+
+    // Add the images to the DOM all at once (rather than one at a time, 
+    // which can cause multiple reflows.
+    arizonatravel_photos.appendChild(container);
+};
+ 
+
+</script>
+
 </body>
-
-
 
 </html>
