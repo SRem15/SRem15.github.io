@@ -4,7 +4,7 @@
 	<!--
 		CIS166AA: Index Page
 		Author: Shane Remmers
-		Date: 4/19/18
+		Date: 4/26/18
 	-->
 	<meta charset="utf-8" />
 	<title>Home</title>
@@ -12,7 +12,8 @@
 	<link rel="stylesheet" href="project.css">
 	<!-- Loads the file needed for older web browsers -->
 	<script src="modernizr.custom.05819.js"></script> 
-	
+	<!-- Includes JQUERY download file -->
+	<script src="jquery.js"></script>
 </head>
 <body>
 
@@ -148,7 +149,8 @@ parameter that specifies your callback method name. -->
 		if (document.getElementById("distance").value === "") //checks to see if field is blank
 		{
 			alert("Please enter value in Miles field (in red)."); //displays message if field is blank
-			document.getElementById("distance").style.backgroundColor = "red"; //turns field red
+			//document.getElementById("distance").style.backgroundColor = "red"; //turns field red
+			$("#distance").css("background-color", "red"); //turns field red (Project 12)
 		}
 		else
 		{
@@ -158,7 +160,8 @@ parameter that specifies your callback method name. -->
 		if (document.getElementById("speed").value === "") //checks to see if field is blank
 		{
 			alert("Please enter value in Speed field (in red)."); //displays message if field is blank
-			document.getElementById("speed").style.backgroundColor = "red"; //turns field red
+			//document.getElementById("speed").style.backgroundColor = "red"; //turns field red
+			$("#speed").css("background-color", "red"); //turns field red (Project 12)
 		}
 		else
 		{
@@ -168,7 +171,8 @@ parameter that specifies your callback method name. -->
 		if (document.getElementById("y").checked == false && document.getElementById("n").checked == false ) //checks to see if either yes or no is selected
 		{
 			alert("Please select an answer to first question (in red)."); //displays message if neither is selected
-			document.getElementById("myDiv").style.borderColor = "red"; //makes a red border around missing answers
+			//document.getElementById("myDiv").style.borderColor = "red"; //makes a red border around missing answers
+			$("#myDiv").css("borderColor","red"); //makes a red border around missing answers (Project 12)
 		}
 		else
 		{
@@ -237,6 +241,7 @@ parameter that specifies your callback method name. -->
     arizonatravel_photos.appendChild(container);
 };
  
+ $("body").css("background-color","#dbbe6f"); //css change (Project 12)
 
 </script>
 
